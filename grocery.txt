@@ -72,7 +72,7 @@ void addProduct(Product products[], int *count) {
     newProduct.id = *count + 1;
 
     printf("Enter product name: ");
-    scanf(" %[^"]s", newProduct.name);
+    scanf(" %[^\n]s", newProduct.name);
 
     printf("Enter product price: ");
     scanf("%f", &newProduct.price);
@@ -93,11 +93,11 @@ void displayProducts(Product products[], int count) {
     }
 
     printf("\nProduct List:\n");
-    printf("ID\tName\t\tPrice\tQuantity\n");
-    printf("----------------------------------------\n");
+    printf("ID\tName\t\tPrice/Kg\tQuantity/Kg\n");
+    printf("---------------------------------------------------------------------\n");
 
     for (int i = 0; i < count; i++) {
-        printf("%d\t%-15s\t%.2f\t%d\n", products[i].id, products[i].name, products[i].price, products[i].quantity);
+        printf("%d\t%-15s\t%.2f\t\t%d\n", products[i].id, products[i].name, products[i].price, products[i].quantity);
     }
 }
 
@@ -135,7 +135,7 @@ void updateProduct(Product products[], int count) {
     for (int i = 0; i < count; i++) {
         if (products[i].id == id) {
             printf("Enter new name: ");
-            scanf(" %[^"]s", products[i].name);
+            scanf(" %[^\n]s", products[i].name);
 
             printf("Enter new price: ");
             scanf("%f", &products[i].price);
